@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build output
+dist/
+dist-tsc/
+build/
+out/
+coverage/
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.user
+*.log
+*.sqlite
+
+# Local scripts
+*.js
+*.ts
+!src/**/*.ts
+!src/**/*.js
+!vite.config.ts
+!tailwind.config.js
+!postcss.config.js
+!eslint.config.js
+users.json
+pass-results.json
