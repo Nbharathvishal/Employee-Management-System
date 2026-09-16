@@ -32,7 +32,7 @@ const PunchButton: React.FC<PunchButtonProps> = ({ onPunchSuccess }) => {
 
   const fetchTodayStatus = async () => {
     const token = localStorage.getItem('token');
-    const res = await fetch('http://localhost:5000/attendance/today', {
+    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/attendance/today`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -57,8 +57,8 @@ const PunchButton: React.FC<PunchButtonProps> = ({ onPunchSuccess }) => {
     const token = localStorage.getItem('token');
     const endpoint =
       attendanceStatus.status === 'CHECKED_IN'
-        ? 'http://localhost:5000/attendance/check-out'
-        : 'http://localhost:5000/attendance/check-in';
+        ? `${import.meta.env.VITE_API_BASE_URL}/attendance/check-out`
+        : `${import.meta.env.VITE_API_BASE_URL}/attendance/check-in`;
 
     try {
       const res = await fetch(endpoint, {

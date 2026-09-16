@@ -17,7 +17,7 @@ const EmployeeDashboard: React.FC = () => {
 
   const fetchAttendance = async () => {
     const token = localStorage.getItem('token');
-    const res = await fetch('http://localhost:5000/attendance/today', {
+    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/attendance/today`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 

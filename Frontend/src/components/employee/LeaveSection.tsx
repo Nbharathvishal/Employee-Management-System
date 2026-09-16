@@ -21,7 +21,7 @@ const LeaveSection: React.FC = () => {
   const fetchLeaves = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/leaves/my-status', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/leaves/my-status`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
@@ -38,7 +38,7 @@ const LeaveSection: React.FC = () => {
   const fetchLeaveBalance = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/leaves/balance', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/leaves/balance`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {

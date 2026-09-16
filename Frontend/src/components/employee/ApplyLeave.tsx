@@ -49,7 +49,7 @@ const ApplyLeave: React.FC = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/leaves', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/leaves`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
