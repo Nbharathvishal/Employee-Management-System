@@ -12,8 +12,6 @@ import {
   LogOut,
   TrendingUp,
   AlertCircle,
-  Calendar,
-  BarChart3,
   Sun,
   Moon,
   CalendarDays,
@@ -22,8 +20,6 @@ import {
   Edit3,
   List,
   FileText,
-  AlertTriangle,
-  ArrowUpRight,
   ArrowDownRight
 } from "lucide-react";
 

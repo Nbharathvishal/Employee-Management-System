@@ -40,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ employeeName }) => {
         </h2>
 
         <p className="text-slate-600 mt-1 md:mt-0">
-          Welcome back to your workspace.
+          Welcome back, {employeeName}.
         </p>
       </div>
 

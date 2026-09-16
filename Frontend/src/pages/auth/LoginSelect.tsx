@@ -1,4 +1,3 @@
-import React from "react"; // Add this import
 import { ShieldCheck, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 

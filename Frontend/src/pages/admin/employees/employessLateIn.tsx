@@ -9,11 +9,6 @@ interface LatePunchIn {
   punchIn: string;
   lateBy: string;
 }
-interface ApiResponse {
-  success: boolean;
-  data: LatePunchIn[];
-  count: number;
-}
 export default function EmployeesLateIn() {
   const [data, setData] = useState<LatePunchIn[]>([]);
   const [loading, setLoading] = useState(true);
