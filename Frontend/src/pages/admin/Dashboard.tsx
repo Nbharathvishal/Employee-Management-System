@@ -42,7 +42,7 @@ export default function AdminDashboard() {
 
   /* ATTENDANCE VIEW */
   const [attendanceView, setAttendanceView] =
-    useState<AttendanceView>("MONTHLY");
+    useState<AttendanceView>("DAILY");
 
   /* ATTENDANCE SUMMARY */
   const [attendanceSummary, setAttendanceSummary] = useState({
@@ -65,7 +65,7 @@ export default function AdminDashboard() {
   /* LOAD ATTENDANCE SUMMARY */
   useEffect(() => {
     const loadAttendance = async () => {
-      const data = await getAdminDashboardAttendance();
+      const data = await getAdminDashboardAttendance(attendanceView);
       setAttendanceSummary(data);
     };
     loadAttendance();
@@ -327,7 +327,7 @@ export default function AdminDashboard() {
                       {attendanceSummary.totalPresent}
                     </div>
                     <div className="text-sm text-green-600">
-                      out of {attendanceSummary.expectedAttendance}
+                      out of {attendanceSummary.expectedAttendance} {attendanceView === "DAILY" ? "employees" : "shifts"}
                     </div>
                   </div>
 
@@ -337,10 +337,10 @@ export default function AdminDashboard() {
                       <ArrowDownRight className="text-red-500" size={18} />
                     </div>
                     <div className="text-2xl font-bold text-red-800 mt-2">
-                      {attendanceSummary.expectedAttendance - attendanceSummary.totalPresent}
+                      {Math.max(attendanceSummary.expectedAttendance - attendanceSummary.totalPresent, 0)}
                     </div>
                     <div className="text-sm text-red-600">
-                      employees absent
+                      {attendanceView === "DAILY" ? "employees absent" : "shifts missed"}
                     </div>
                   </div>
                 </div>
