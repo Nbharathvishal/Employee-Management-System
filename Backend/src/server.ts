@@ -18,9 +18,10 @@ const server = http.createServer(async (req, res) => {
   // Add debug to see which routes are checked
   console.log("🔍 Checking routes for:", req.method, req.url);
 
+  const allowedOrigin = process.env.FRONTEND_URL ? process.env.FRONTEND_URL.replace(/\/+$/, "") : "*";
   res.setHeader(
     "Access-Control-Allow-Origin",
-    process.env.FRONTEND_URL || "*"
+    allowedOrigin
   );
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
   res.setHeader(

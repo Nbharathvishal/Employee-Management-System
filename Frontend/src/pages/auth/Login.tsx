@@ -29,8 +29,9 @@ export default function Login() {
       } else {
         navigate("/employee/dashboard");
       }
-    } catch {
-      alert("Invalid email or password");
+    } catch (err: any) {
+      const msg = err.response?.data?.message || err.message || "Invalid email or password";
+      alert(msg);
     }
   };
 
